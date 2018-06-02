@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* mavenProba
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* mavenprojectJSF

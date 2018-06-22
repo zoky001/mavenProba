@@ -19,21 +19,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import javafx.scene.control.TableColumn.CellEditEvent;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import org.foi.nwtis.zorhrncic.web.podaci.Dnevnik;
 import org.foi.nwtis.zorhrncic.web.podaci.Placanja3mjeseca;
 import org.foi.nwtis.zorhrncic.web.podaci.PlacanjeUJednomMjesecu;
 import org.foi.nwtis.zorhrncic.web.podaci.User;
 import org.primefaces.event.RowEditEvent;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
  *

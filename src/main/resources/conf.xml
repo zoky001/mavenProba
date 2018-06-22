@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment>NWTIS konfiguracija - JavaDB</comment>
+   
+    <entry key="gmapikey">AIzaSyClMT9ZUK7VC2PrvIvjEttlEErqS8aHuMc</entry>
+    <entry key="apikey">7505f1b2a843433f4c408932f2d4300d</entry>
+    <entry key="hrncicUsername">zorhrncic</entry>
+    <entry key="hrncicPassword">iw5ZIpZkv6WQEI</entry>
+    <entry key="mqttHost">nwtis.foi.hr</entry>
+    <entry key="mqttPort">61613</entry>
+    <entry key="mqttDestination">/NWTiS/zorhrncic</entry>
+    <!-- <comment>Konfiguracija NWTIS grupa 2 zadaca 1. - treba ocistiti</comment>-->
+    <entry key="interval.za.serijalizaciju">10</entry>
+    
+    <!-- zadaca 2 james config-->
+    <!--   ejb _ 2 module-->
+    <entry key="mail.server">127.0.0.1</entry>
+    <entry key="mail.imap.port">143</entry>
+    <entry key="mail.usernameThread">servis@nwtis.nastava.foi.hr</entry>
+    <entry key="mail.passwordThread">123456</entry>
+    <entry key="mail.numMessagesToRead">10</entry>
+    <entry key="mail.attachmentFilename">NWTiS_komanda_privitak.json</entry>
+    <entry key="mail.folderNWTiS">NWTIS_PORUKE_Projekt</entry>
+    <entry key="mail.usernameEmailAddress">admin@nwtis.nastava.foi.hr</entry>
+    <entry key="mail.subjectEmail">Komanda poslužitelja</entry>
+    <entry key="mail.numMessagesToShow">7</entry>
+    <entry key="mail.numLogItemsToShow">7</entry>
+    <entry key="mail.timeSecThreadCycle">15</entry>
+    
+    
+    <entry key="user.numItemsToShow">11</entry>
+    <entry key="mqtt.numMessagesToShow">8</entry>
+    <entry key="log.numItemsToShow">7</entry>
+    <!-- zadaca 3 server config-->
+       
+    <entry key="server.address">127.0.0.1</entry>
+    <entry key="server.port">8766</entry>
+    
+    <entry key="server.username">korisnik</entry>
+    <entry key="server.password">lozinka</entry>
+</properties>

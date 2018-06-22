@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+
+    <h:head>
+        <title>Login</title>
+        <h:outputStylesheet name="/css/login.css" />
+    </h:head>
+
+    <h:body>
+        <h:form id="form">
+            <p:growl id="msgs" showDetail="true"/>
+
+            <p:dataTable id="cars1" var="osoba" value="#{placanja.placanja3mjeseca}" editable="true" style="margin-bottom:20px"   sortBy="#{osoba.prezime}"
+                                         sortOrder="ascending"  >
+                <f:facet name="header">
+                    Row Editing
+                </f:facet>
+
+                <p:ajax event="rowEdit" listener="#{placanja.onRowEdit}" update=":form:msgs" />
+                <p:ajax event="rowEditCancel" listener="#{placanja.onRowCancel}" update=":form:msgs" />
+                <p:columnGroup type="header">
+                    <p:row>
+                        <p:column colspan="2" headerText="Pregled" />
+                        <p:column colspan="4" headerText="Siječanj" />
+                        <p:column colspan="4" headerText="Veljača" />
+                        <p:column colspan="4" headerText="Ožujak" />
+                    </p:row>
+                    <p:row>
+                        <p:column headerText="Ime i prezime" styleClass="tablicaSirina sirinaIme" style="width: 400px" />
+                        <p:column headerText="Napomena" styleClass="tablicaSirina"  />
+
+                        <p:column headerText="Cijena" styleClass="tablicaSirina  mjesec1" />
+                        <p:column headerText="Plaćeni iznos" styleClass="tablicaSirina mjesec1"/>
+                        <p:column headerText="Datum" styleClass="tablicaSirina mjesec1" />
+                        <p:column headerText="Razlika" styleClass="tablicaSirina mjesec1" />
+
+                        <p:column headerText="Cijena" styleClass="tablicaSirina mjesec2" />
+                        <p:column headerText="Plaćeni iznos" styleClass="tablicaSirina mjesec2"  />
+                        <p:column headerText="Datum" styleClass="tablicaSirina mjesec2" />
+                        <p:column headerText="Razlika" styleClass="tablicaSirina mjesec2" />
+
+                        <p:column headerText="Cijena" styleClass="tablicaSirina mjesec3" />
+                        <p:column headerText="Plaćeni iznos" styleClass="tablicaSirina mjesec3" />
+                        <p:column headerText="Datum" styleClass="tablicaSirina mjesec3"/>
+                        <p:column headerText="Razlika" styleClass="tablicaSirina mjesec3"/>
+
+                    </p:row>
+                </p:columnGroup>
+                <p:column style="width: 400px; word-wrap: break-word"  styleClass="tablicaSirina sirinaIme" >
+
+                    <h:outputText class="sirinaIme" value="#{osoba.prezime}&nbsp; &nbsp; #{osoba.ime}" />
+
+
+                </p:column>
+
+                <p:column styleClass="tablicaSirina" >
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{osoba.napomena}" /></f:facet>
+                        <f:facet name="input"><p:inputText value="#{osoba.napomena}" style="width:100%" label="Napomena"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+
+                <p:column styleClass="tablicaSirina mjesec1">
+                    <p:cellEditor>
+                        <f:facet name="output">
+
+                            <h:outputText value="#{osoba.listaMejseciPlacanja.get(0).cijena}" >
+                                <f:convertNumber currencySymbol="kn" type="currency" locale="pt-PT"/>
+                            </h:outputText>
+                        </f:facet>
+                        <f:facet name="input"><p:inputText value="#{osoba.listaMejseciPlacanja.get(0).cijena}" style="width:100%" label="Napomena"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column styleClass="tablicaSirina mjesec1">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{osoba.listaMejseciPlacanja.get(0).placeniIznos}" >
+                                <f:convertNumber currencySymbol="kn" type="currency" locale="pt-PT"/>
+                            </h:outputText>
+                        </f:facet>
+                        <f:facet name="input"><p:inputText value="#{osoba.listaMejseciPlacanja.get(0).placeniIznos}" style="width:100%" label="Napomena"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column  styleClass="tablicaSirina mjesec1">
+                    <h:outputText value="#{osoba.listaMejseciPlacanja.get(0).datumPlacanja}" >
+                        <f:convertDateTime pattern="dd. MM. yyyy" />  
+                    </h:outputText>
+                </p:column>
+                <p:column styleClass="tablicaSirina mjesec1 #{osoba.listaMejseciPlacanja.get(0).placeniIznos - osoba.listaMejseciPlacanja.get(0).cijena gt 0 ? 'preplaceno' : ''} #{osoba.listaMejseciPlacanja.get(0).placeniIznos - osoba.listaMejseciPlacanja.get(0).cijena lt 0 ? 'nijeSvePodmireno' : ''}" >
+                    <h:outputText value="#{osoba.listaMejseciPlacanja.get(0).placeniIznos - osoba.listaMejseciPlacanja.get(0).cijena}" >
+                        <f:convertNumber currencySymbol="kn" type="currency" locale="pt-PT"/>
+                    </h:outputText>
+                </p:column>
+
+
+                <p:column styleClass="tablicaSirina mjesec2" >
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{osoba.listaMejseciPlacanja.get(1).cijena}" >
+                                <f:convertNumber currencySymbol="kn" type="currency" locale="pt-PT"/>
+                            </h:outputText>
+                        </f:facet>
+                        <f:facet name="input"><p:inputText value="#{osoba.listaMejseciPlacanja.get(1).cijena}" style="width:100%" label="Napomena"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column styleClass="tablicaSirina mjesec2" >
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{osoba.listaMejseciPlacanja.get(1).placeniIznos}" >
+                                <f:convertNumber currencySymbol="kn" type="currency" locale="pt-PT"/>
+                            </h:outputText>
+                        </f:facet>
+                        <f:facet name="input"><p:inputText value="#{osoba.listaMejseciPlacanja.get(1).placeniIznos}" style="width:100%" label="Napomena"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column styleClass="tablicaSirina mjesec2" >
+                    <h:outputText value="#{osoba.listaMejseciPlacanja.get(1).datumPlacanja}" >
+                        <f:convertDateTime pattern="dd. MM. yyyy" />  
+                    </h:outputText>
+                </p:column>
+                <p:column styleClass="tablicaSirina mjesec2 #{osoba.listaMejseciPlacanja.get(1).placeniIznos - osoba.listaMejseciPlacanja.get(1).cijena gt 0 ? 'preplaceno' : ''} #{osoba.listaMejseciPlacanja.get(1).placeniIznos - osoba.listaMejseciPlacanja.get(1).cijena lt 0 ? 'nijeSvePodmireno' : ''}" >
+                    <h:outputText value="#{osoba.listaMejseciPlacanja.get(1).placeniIznos - osoba.listaMejseciPlacanja.get(1).cijena}" >
+                        <f:convertNumber currencySymbol="kn" type="currency" locale="pt-PT"/>
+                    </h:outputText>
+                </p:column>
+
+
+                <p:column styleClass="tablicaSirina mjesec3" >
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{osoba.listaMejseciPlacanja.get(2).cijena}" >
+                                <f:convertNumber currencySymbol="kn" type="currency" locale="pt-PT"/>
+                            </h:outputText>
+                        </f:facet>
+                        <f:facet name="input"><p:inputText value="#{osoba.listaMejseciPlacanja.get(2).cijena}" style="width:100%" label="Napomena"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column styleClass="tablicaSirina mjesec3" >
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{osoba.listaMejseciPlacanja.get(2).placeniIznos}" >
+                                <f:convertNumber currencySymbol="kn" type="currency" locale="pt-PT"/>
+                            </h:outputText>
+                        </f:facet>
+                        <f:facet name="input"><p:inputText value="#{osoba.listaMejseciPlacanja.get(2).placeniIznos}" style="width:100%" label="Napomena"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column styleClass="tablicaSirina mjesec3" >
+                    <h:outputText value="#{osoba.listaMejseciPlacanja.get(2).datumPlacanja}" >
+                        <f:convertDateTime pattern="dd. MM. yyyy" />  
+                    </h:outputText>
+                </p:column>
+                <p:column styleClass="tablicaSirina mjesec3 #{osoba.listaMejseciPlacanja.get(2).placeniIznos - osoba.listaMejseciPlacanja.get(2).cijena gt 0 ? 'preplaceno' : ''} #{osoba.listaMejseciPlacanja.get(2).placeniIznos - osoba.listaMejseciPlacanja.get(2).cijena lt 0 ? 'nijeSvePodmireno' : ''}" >
+                    <h:outputText value="#{osoba.listaMejseciPlacanja.get(2).placeniIznos - osoba.listaMejseciPlacanja.get(2).cijena}" >
+                        <f:convertNumber currencySymbol="kn" type="currency" locale="pt-PT"/>
+                    </h:outputText>
+                </p:column>
+
+
+
+
+                <p:column style="width:32px">
+                    <p:rowEditor />
+                </p:column>
+            </p:dataTable>
+
+
+
+
+        </h:form>
+    </h:body>
+</html>

@@ -1,0 +1,1 @@
+web: java -jar target/jsf-primefaces-spring-security-0.0.1-SNAPSHOT.jar

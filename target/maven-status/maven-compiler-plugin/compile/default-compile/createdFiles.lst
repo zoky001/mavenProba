@@ -1,0 +1,4 @@
+com\codenotfound\primefaces\config\WelcomePageRedirect.class
+com\codenotfound\primefaces\SpringPrimeFacesApplication.class
+com\codenotfound\primefaces\model\HelloWorld.class
+com\codenotfound\primefaces\config\SecurityConfig.class

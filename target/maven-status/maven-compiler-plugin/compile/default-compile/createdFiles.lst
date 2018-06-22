@@ -1,6 +1,11 @@
 com\codenotfound\primefaces\SpringPrimeFacesApplication$1.class
 com\codenotfound\primefaces\model\HelloWorld.class
 dom\sv\ane\slusaci\SlusacAplikacije.class
-com\codenotfound\primefaces\config\WelcomePageRedirect.class
 com\codenotfound\primefaces\SpringPrimeFacesApplication.class
+org\foi\nwtis\zorhrncic\web\podaci\Dnevnik.class
+dom\sv\ane\beans\Placanja.class
+org\foi\nwtis\zorhrncic\web\podaci\PlacanjeUJednomMjesecu.class
+org\foi\nwtis\zorhrncic\web\podaci\User.class
+com\codenotfound\primefaces\config\WelcomePageRedirect.class
+org\foi\nwtis\zorhrncic\web\podaci\Placanja3mjeseca.class
 com\codenotfound\primefaces\config\SecurityConfig.class

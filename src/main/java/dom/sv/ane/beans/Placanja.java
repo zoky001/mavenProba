@@ -15,7 +15,6 @@
  */
 package dom.sv.ane.beans;
 
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -90,16 +89,6 @@ public class Placanja implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
-    public void onCellEdit(CellEditEvent event) {
-        System.out.println("EDIT");
-        Object oldValue = event.getOldValue();
-        Object newValue = event.getNewValue();
-
-        if (newValue != null && !newValue.equals(oldValue)) {
-            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cell Changed", "Old: " + oldValue + ", New:" + newValue);
-            FacesContext.getCurrentInstance().addMessage(null, msg);
-        }
-    }
 
     public void refresh() {
         FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cell Changed", "Old: ");
